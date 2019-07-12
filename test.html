@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+<script>
+  function rank_by_two_large_one_small(collection){
+    var arr = collection.sort(function (a,b) {
+      return a-b;
+    });
+
+    var a = [];
+    var num = 0;
+    for (var i = 0;i<arr.length;i++){
+      num++;
+      if (num === 3){
+        a.push(arr[i-2]);
+        num = 0;
+      }else {
+        a.push(arr[i+1]);
+      }
+
+    }
+  }
+  let arr = [12,3,2,3,5,6,5,6,12,10,4];
+  document.write(rank_by_two_large_one_small(arr));
+</script>
+</body>
+</html>
