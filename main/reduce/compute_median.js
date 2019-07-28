@@ -1,18 +1,15 @@
 'use strict';
 
 function compute_median(collection) {
-  var l = collection.length-1;
-  var n = Math.floor(l/2);
-  if (l > 5){
-    var mid = (collection[n]+collection[l-n])/2 - 2;
+  var chain = collection.sort(function(a,b){return a-b;});
+  var pos = Math.floor(chain.length/2);
+  console.log(chain);
+  if (chain.length%2 == 0) {
+    return (chain[pos]+chain[pos-1])/2;
   } else {
-    var mid = (collection[n]+collection[l-n])/2;
+    return chain[pos];
   }
-
-  return mid;
-
 }
 
 module.exports = compute_median;
-
 
